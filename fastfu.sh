@@ -15,5 +15,8 @@ f("control",b"("c"){")
 f("literal",b)
 f("case",a" "b":")
 f("var",b" "c)}';};
-targetsh(){ a="$1";b="$2";shift 2;{ "$@"<"$a">"$b" 2>"$b.log";printf %s "$?">"$b.?";}&}
-while :;do eval "targetsh $(awk '{gsub(/[^ ]/,"\\\\&")}1')";done;
+targetsh2(){ a="$1";b="$2";shift 2;{ "$@"<"/tmp/.$a">"/tmp/.$b" 2>"/tmp/.$b.log";printf %s "$?">"/tmp/.$b.?";}&}
+targetsh(){ while IFS= read -r line || [ -n "$line" ]; do
+    [ -z "$line" ] && continue
+    eval "targetsh $(printf %s "$line" | awk '{gsub(/[^ ]/,"\\\\&")}1')"
+done;}
