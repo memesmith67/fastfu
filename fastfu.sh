@@ -15,4 +15,5 @@ f("control",b"("c"){")
 f("literal",b)
 f("case",a" "b":")
 f("var",b" "c)}';};
-compiler_target(){ a="$1";b="$2";shift 2;"$@"<"$a">"$b" 2>"$b.log"&}
+targetsh(){ a="$1";b="$2";shift 2;{ "$@"<"$a">"$b" 2>"$b.log";printf %s "$?">"$b.?";}&}
+while :;do eval "targetsh $(awk '{gsub(/[^ ]/,"\\\\&")}1')";done;
