@@ -1,5 +1,5 @@
-fastfu(){ #copyright john morrris beck 2026 gpl2
-    awk 'function f(x,y){if($2==x){print y";"}}
+#copyright john morris beck 2026 gpl2
+fastfu(){ awk 'function f(x,y){if($2==x){print y";"}}
 $1!="fastfu"{print} $1=="fastfu"{
 a=$2;b=$3;c=$4;d=$5;
 f("memcpy",a"("b","c","d")")
@@ -15,3 +15,4 @@ f("control",b"("c"){")
 f("literal",b)
 f("case",a" "b":")
 f("var",b" "c)}';};
+compiler_target(){ a="$1";b="$2";shift 2;"$@"<"$a">"$b" 2>"$b.log"&}
