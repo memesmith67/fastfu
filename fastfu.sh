@@ -25,4 +25,4 @@ f("w",r[r[c]]=r[b])
 f("i",n())
 f("o",printf "%s",r[c])
 f("c",sprintf("%c",r[c]))
-f("e",exit(r[c]))}'|sh;};
+f("e",exit(r[c]))}'|sh;}
