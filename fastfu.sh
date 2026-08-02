@@ -1,6 +1,7 @@
 #copyright john morris beck 2026 gpl2
 macrosh(){ sh|sh;}
-fastfu(){ awk '{f["malloc"]=$3"="$2"("$4")"
+fastfu(){ awk '{
+f["malloc"]=$3"="$2"("$4")"
 f["free"]=$2"("$3")"
 f["control"]=$3"("$4"){"
 f["literal"]=$3
