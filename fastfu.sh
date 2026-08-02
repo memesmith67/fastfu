@@ -1,6 +1,6 @@
 #copyright john morris beck 2026 gpl2
 macrosh(){ sh|sh;};
-fastfu(){ awk '$1!="fastfu";$1=="fastfu"{
+fastfu(){ awk '{
 d["malloc"]=$3"="$2"("$4")";
 d["free"]=$2"("$3")";
 d["control"]=$3"("$4"){";
@@ -10,4 +10,4 @@ d["var"]=$3" "$4;
 d["assign"]=$3"="$4;
 d["get"]=$3"=*"$4;
 d["set"]="*"$3"="$4;
-print d[$2]";"}';};
+print $1=="fastfu"?d[$2]";":$0}';};
