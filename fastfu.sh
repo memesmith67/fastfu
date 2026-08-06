@@ -11,4 +11,4 @@ fastfu(){ awk '$1!="fastfu";$1!="fastfu"{
     f["control"]=$3"("$4"){"
     f["case"]=$2" "$3":"
     f["literal"]=$3
-    print f[$2]";"}';}w
+    print f[$2]";"}';}
